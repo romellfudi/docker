@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  python:
+    build: .
+    command: python hello_world.py
+    volumes:
+      - .:/webapp
+
+volumes:  
+  db_data:
+    external: true
