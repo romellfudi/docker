@@ -1,6 +1,6 @@
 # <- image
 ## <- container
-
+```md
 docker run -it --rm --name ds -p 8888:8888 jupyter/datascience-notebook
 #Amazon
 sudo curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-darwin-amd64-latest
@@ -67,7 +67,7 @@ docker run --name some-wordpress --link some-sql:mysql -p 8080:80 -d wordpress
 
 romellfudi
 pa9Bu538rCgrB8c#vs
-
+```
 
 
 

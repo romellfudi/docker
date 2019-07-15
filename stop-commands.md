@@ -16,9 +16,12 @@ docker network rm `docker network ls -q`
 # Your installation should now be all fresh and clean.
 
 # The following commands should not output any items:
-# docker ps -a
-# docker images -a 
-# docker volume ls
-
+```md
+docker ps -a
+docker images -a 
+docker volume ls
+```
 # The following command show only show the default networks:
-# docker network ls
+```
+docker network ls
+```
