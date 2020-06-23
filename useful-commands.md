@@ -69,7 +69,16 @@ romellfudi
 pa9Bu538rCgrB8c#vs
 ```
 
-
+# enter into terminal
+```
+docker exec -it jupyterhub bash
+exit
+```
+```sh
+docker restart jupyterhub
+docker stop jupyterhub
+docker rm jupyterhub
+```
 
 
 
