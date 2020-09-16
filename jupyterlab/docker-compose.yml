@@ -1,8 +1,13 @@
+version: '3'
 
-jupyterlab:
-  build: ./jupyterlab
-  ports:
-    - "8888:8888"
-  volumes:
-    - ./data:/opt/app/data
-  entrypoint: sh -c 'jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root'
+services:
+    jupyter:
+        image: 'jupyter/datascience-notebook:latest'
+        ports:
+            - '8888:8888'
+        volumes:
+          - ./workspace:/home/jovyan/work
+        container_name: jupyter
+        environment:
+          JUPYTER_ENABLE_LAB: 'yes'
+
