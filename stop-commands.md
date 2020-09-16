@@ -1,3 +1,6 @@
+# remove
+docker-compose rm
+
 # Stop all containers
 docker stop `docker ps -qa`
 
