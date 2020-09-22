@@ -29,3 +29,7 @@ jobs:
       run: |
         cd jupyterlab; docker-compose up -d
         docker-compose down; cd ..;
+    - name: docker-compose flask_compose
+      run: |
+        cd learn/flask_compose_sample; docker-compose up -d
+        docker-compose down; cd ../..;
