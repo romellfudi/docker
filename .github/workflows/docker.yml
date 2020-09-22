@@ -15,6 +15,9 @@ jobs:
     - name: environment
       env:
         ROOT_DIRECTORY: .
+      run: |
+        pwd;
+        cd ROOT_DIRECTORY
     - name: docker-compose BoostTag Wordpress
       run: |
         pwd;
