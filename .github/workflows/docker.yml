@@ -16,11 +16,11 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
-    - name: docker-compose BoostTag Wordpress
+    - name: docker-compose boosttag
       run: |
         cd boosttag; docker-compose up -d
         docker-compose down; cd ..;
-    - name: docker-compose Flask
+    - name: docker-compose jupyterlab
       run: |
-        cd learn/flask_compose_sample; docker-compose up -d
+        cd learn/jupyterlab; docker-compose up -d
         docker-compose down; cd ../..;
