@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: docker build csharp
+    - name: docker-compose BoostTag Wordpress
       run: |
         cd boosttag; docker-compose up -d
         cd boosttag; docker-compose down
