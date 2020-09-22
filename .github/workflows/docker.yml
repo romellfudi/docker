@@ -20,7 +20,11 @@ jobs:
       run: |
         cd boosttag; docker-compose up -d
         docker-compose down; cd ..;
+    - name: docker-compose machinlearning
+      run: |
+        cd machinlearning; docker-compose up -d
+        docker-compose down; cd ..;
     - name: docker-compose jupyterlab
       run: |
-        cd learn/jupyterlab; docker-compose up -d
-        docker-compose down; cd ../..;
+        cd jupyterlab; docker-compose up -d
+        docker-compose down; cd ..;
