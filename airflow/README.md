@@ -34,6 +34,20 @@ or execute the following script below that will do the same thing:
 $ bash bin/start.sh
 ```
 
+2.1) run as root:
+```sh
+docker container ps 
+docker exec -u root -it airflow_airflow-worker_1  bash
+chmod 777 /var/run/docker.sock
+# chmod 777 dags/ logs/ plugins/
+# chown 50000:50000 dags logs plugins
+```
+
+2.2) chmod:
+```bash
+$ chmod 777 /var/run/docker.sock
+```
+
 3) Finally when you're done with your experiment, stop all containers running the following command:
 ```bash
 $  bash bin/stop.sh
