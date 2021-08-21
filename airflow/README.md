@@ -1,3 +1,5 @@
+[TUTORIAL](https://towardsdatascience.com/using-apache-airflow-dockeroperator-with-docker-compose-57d0217c8219)
+
 # Airflow demo: Using the DockerOperator with Docker Compose
 
 Most of tutorials just explains how to use the [Airflow DockerOperator](https://airflow.apache.org/docs/apache-airflow-providers-docker/stable/_api/airflow/providers/docker/operators/docker/index.html) using the bare metal installation; and here we will use it with [Airflow on top of Docker Compose](https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html).
@@ -8,6 +10,8 @@ Most of tutorials just explains how to use the [Airflow DockerOperator](https://
 
 ## Setup
 1) First create a container with the webservice and create the `airflow` user, [as described in the official docs](https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html):
+
+
 
 ```bash
 $ docker-compose up airflow-init
