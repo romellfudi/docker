@@ -1,5 +1,4 @@
 import unittest
-import numpy as np
 
 # Write test case for method from libs.py
 class TestLibs(unittest.TestCase):
@@ -45,6 +44,7 @@ class TestLibs(unittest.TestCase):
 
     def test_mean_auc(self):
         from libs import generate_data, create_models, train_test_split, train_models_and_return_aucs, mean_auc
+        import numpy as np
         # Write test case for mean_auc, validate the mean_auc is float
         df = generate_data(500)
         models = create_models()
