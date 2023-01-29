@@ -4,3 +4,5 @@ dist
 build
 doc/build
 Dockerfile
+*.csv
+*.h5
