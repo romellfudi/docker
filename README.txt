@@ -15,3 +15,10 @@ docker stop datascience
 docker exec -it datascience bash
 nosetests --with-watch --rednose --nologcapture
 nosetests --rednose --nologcapture
+
+// To create a temporal container and expose directly, you must add the following lines to the Dockerfile:
+EXPOSE 8888
+CMD ["jupyter", "notebook", "--ip=8888", "--no-browser", "--allow-root"]
+CMD python ./index.py
+// to run the container:
+docker run -rm -it -p 8888:8888 datascience
