@@ -22,3 +22,8 @@ CMD ["jupyter", "notebook", "--ip=8888", "--no-browser", "--allow-root"]
 CMD python ./index.py
 // to run the container:
 docker run -rm -it -p 8888:8888 datascience
+
+// Jupyer in one lines
+docker run -it -p 8888:8888 jupyter/all-spark-notebook:4.0 ipython notebook --ip=0.0.0.0 --port=8888
+
+
