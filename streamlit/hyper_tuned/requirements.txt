@@ -1,0 +1,6 @@
+# numpy==1.19.5
+plotly
+# pandas==1.2.0
+streamlit
+Pillow
+scikit_learn
