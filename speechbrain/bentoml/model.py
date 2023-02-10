@@ -1,15 +1,14 @@
-# %%writefile model.py
 from speechbrain.pretrained import SpeakerRecognition
-from typing import List
+from typing import Dict
 import base64
 import bentoml
 
-
-def speaker_recognition_score(input_list: List[str]) -> List[str]:
+def speaker_recognition_score(input_list: Dict[str, str]) -> Dict[str, str]:
     verification = SpeakerRecognition.from_hparams(
         source="speechbrain/spkrec-ecapa-voxceleb",
         savedir="pretrained_models/spkrec-ecapa-voxceleb",
     )
+
     with open("audio1.wav", "wb") as binary_file:
         binary_file.write(base64.b64decode(input_list["audio1"]))
     with open("audio2.wav", "wb") as binary_file:
