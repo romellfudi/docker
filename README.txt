@@ -27,3 +27,7 @@ docker run -rm -it -p 8888:8888 datascience
 docker run -it -p 8888:8888 jupyter/all-spark-notebook:4.0 ipython notebook --ip=0.0.0.0 --port=8888
 
 
+
+RUN apt-get update && apt-get install -yqq --no-install-recommends  ffmpeg
+
+RUN pip3 install --no-dependencies -r requirements.txt

@@ -1,0 +1,7 @@
+service: "speaker_recognition_service:svc"
+include:
+  - "model.py"
+  - "speaker_recognition_service.py"
+python:
+  packages:
+    - "speechbrain"
