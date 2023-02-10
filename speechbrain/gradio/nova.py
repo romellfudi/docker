@@ -32,6 +32,7 @@ def main():
             gr.Text(label="Score"),
             gr.Text(label="Ambos audio pertenecen a la misma persona?"),
         ],
+        allow_flagging="never",
         css="footer {visibility: hidden}",
     )
     interface.launch(
@@ -40,7 +41,6 @@ def main():
         auth=("romell", "romell"),
         favicon_path="favicon.ico",
         auth_message="Ingresar Credenciales proporcionadas por BOOSTTAG",
-        allow_flagging="never",
     )
 
 
