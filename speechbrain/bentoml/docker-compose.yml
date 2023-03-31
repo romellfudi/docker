@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  app:
+    image: python:3.9-slim
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: sh -c "
+              apt-get update && apt-get install -y ffmpeg &&
+              pip3 install -r requirements.txt &&
+              python ./model.py &&
+              bentoml serve -p 3000 speaker_recognition_service.py:svc"
+    ports:
+      - 3000:3000
