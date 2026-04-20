@@ -1,29 +1,39 @@
-from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
 
-mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
+# Load dataset
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
 
-x = tf.placeholder( tf.float32, [None, 784] )
-W = tf.Variable(tf.zeros([784,10]))
-b = tf.Variable(tf.zeros([10]))
+# Preprocess
+x_train = x_train.reshape(-1, 784).astype("float32") / 255.0
+x_test = x_test.reshape(-1, 784).astype("float32") / 255.0
 
-y = tf.nn.softmax( tf.matmul(x,W) + b)
-y_ = tf.placeholder(tf.float32, [None,10])
-cross_entropy = tf.reduce_mean( -tf.reduce_sum(y_*tf.log(y) , reduction_indices=[1] ))
+y_train = tf.keras.utils.to_categorical(y_train, 10)
+y_test = tf.keras.utils.to_categorical(y_test, 10)
 
-train_step = tf.train.GradientDescentOptimizer(0.05).minimize( cross_entropy )
+# Define model (equivalent to W, b, softmax)
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(10, activation="softmax", input_shape=(784,))
+])
 
-sess = tf.InteractiveSession()
+# Compile (loss = cross entropy, optimizer = gradient descent)
+model.compile(
+    optimizer=tf.keras.optimizers.SGD(learning_rate=0.05),
+    loss="categorical_crossentropy",
+    metrics=["accuracy"]
+)
 
-tf.global_variables_initializer().run()
+# Train (replaces session loop)
+model.fit(x_train, y_train, batch_size=100, epochs=10)
 
-for _ in range(1000):
-	batch_xs, batch_ys = mnist.train.next_batch(100)
-	sess.run( train_step, feed_dict={ x: batch_xs, y_:batch_ys} )
+# Evaluate
+loss, accuracy = model.evaluate(x_test, y_test)
+# print current path and make a ls command to show the saved model file
+import os
+print("Current path:", os.getcwd())
+print("Files in current directory:")
+os.system("ls")
 
 
-correct_prediction=tf.equal( tf.argmax(y,1), tf.argmax(y_,1) )
-
-accuracy = tf.reduce_mean( tf.cast(correct_prediction, tf.float32 ) )
-
-print('The Accuracy:', sess.run(accuracy, feed_dict={ x:mnist.test.images, y_:mnist.test.labels } ))
+print("The Accuracy:", accuracy)
+model.save(f"/webapp/mnist_model.keras")
+print("Model saved as mnist_model.keras")

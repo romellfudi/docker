@@ -1,4 +1,4 @@
-version: '2'
+version: '3.8'
 
 services:
   python:
@@ -8,5 +8,5 @@ services:
       - .:/webapp
 
 volumes:  
-  db_data:
+  webapp:
     external: true
