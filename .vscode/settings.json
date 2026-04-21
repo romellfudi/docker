@@ -1,4 +1,9 @@
 {
     "python-envs.defaultEnvManager": "ms-python.python:conda",
-    "python-envs.defaultPackageManager": "ms-python.python:conda"
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    "coda.advancedSettings": {
+        "backendPort": 55208,
+        "headersTimeout": 600000,
+        "bodyTimeout": 600000
+    }
 }
